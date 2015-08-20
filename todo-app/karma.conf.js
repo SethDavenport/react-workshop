@@ -14,17 +14,29 @@ module.exports = function (config) {
     ],
 
     preprocessors: {
-      'tests.webpack.js': [ 'webpack', 'sourcemap' ]
+      'tests.webpack.js': [ 'webpack', 'sourcemap' ],
+      'app/**/*.js': ['coverage']
     },
 
-    reporters: [ 'dots' ],
+    // reporters: [ 'dots' ],
+    reporters: [ 'progress', 'coverage'],
+
+    coverageReporter: {
+      type: 'html',
+      dir: 'coverage/'
+    },
 
     webpack: {
       devtool: 'inline-source-map',
       module: {
         loaders: [
           { test: /\.js$/, loader: 'babel-loader' }
-        ]
+        ],
+        postLoaders: [ { // << add subject as webpack's postloader
+            test: /\.js$/,
+            exclude: /(test|node_modules|bower_components)\//,
+            loader: 'istanbul-instrumenter'
+        }]
       }
     },
 

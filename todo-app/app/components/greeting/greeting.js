@@ -9,3 +9,7 @@ export default React.createClass({
     );
   },
 });
+
+function sayHello() {
+  console.log('aaa');
+}
