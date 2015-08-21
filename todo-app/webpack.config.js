@@ -1,8 +1,17 @@
+'use strict';
+
 module.exports = {
   context: __dirname + "/app",
+  target: "web",
+  debug: true,
+  resolve: {
+    extensions: ['', '.jsx', '.es6', '.js', '.scss']
+  },
+  devtool: "source-map",
+
   entry: {
     javascript: "./app.js",
-    html: "./index.html",
+    html: "./index.html"
   },
 
   output: {
@@ -14,6 +23,10 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
+      exclude: /node_modules/,
+      loaders: ["react-hot", "babel-loader"],
+    }, {
+      test: /\.es6$/,
       exclude: /node_modules/,
       loaders: ["react-hot", "babel-loader"],
     }, {

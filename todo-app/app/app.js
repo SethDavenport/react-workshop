@@ -1,11 +1,10 @@
 import React from "react";
-import Greeting from "./components/greeting/greeting";
-import TodoList from "./components/todo-list/todo-list";
+import Header from "./components/header/header";
+import Todo from "./components/todo/todo";
 
 React.render(
   <div>
-    <Greeting name="World"/>
-    <TodoList />
+    <Header title="Todo App"/>
   </div>,
-  document.body
+  document.getElementById('main')
 );
