@@ -1,11 +1,11 @@
 var React = require('react');
 var TestUtils = require('react/lib/ReactTestUtils');
 var expect = require('expect');
-var Greeting = require('./greeting');
+var Greeting = require('./header');
 
-describe('greeting', function () {
+describe('header', function () {
   it('renders without problems', function () {
-    var root = TestUtils.renderIntoDocument( < Greeting / > );
+    var root = TestUtils.renderIntoDocument( <Header / > );
     expect(root).toExist();
   });
 });

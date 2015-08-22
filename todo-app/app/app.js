@@ -5,6 +5,7 @@ import Todo from "./components/todo/todo";
 React.render(
   <div>
     <Header title="Todo App"/>
+    <Todo />
   </div>,
   document.getElementById('main')
 );

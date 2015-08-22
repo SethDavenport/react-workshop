@@ -1,20 +1,29 @@
 import React from "react";
 
-export default React.createClass({
+export default class TodoRoe extends React.Component {
 
-  propTypes: {
-    editClicked: React.PropTypes.func.isRequired,
-    deleteClicked: React.PropTypes.func.isRequired,
-    todo: React.PropTypes.object.isRequired
-  },
-  editClicked: function() {
+  constructor(props) {
+    super(props);
+    this.propTypes = {
+      editClicked: React.PropTypes.func.isRequired,
+      deleteClicked: React.PropTypes.func.isRequired,
+      todo: React.PropTypes.object.isRequired
+    };
+
+    this.editClicked = this.editClicked.bind(this);
+    this.deleteClicked = this.deleteClicked.bind(this);
+
+  }
+
+  editClicked() {
     this.props.editClicked(this.props.todo);
-  },
-  deleteClicked: function() {
-    this.props.deleteClicked(this.props.todo);
-  },
+  }
 
-  render: function() {
+  deleteClicked() {
+    this.props.deleteClicked(this.props.todo);
+  }
+
+  render() {
     return (
       <tr>
           <td>{this.props.todo.name}</td>
@@ -25,5 +34,5 @@ export default React.createClass({
           </td>
       </tr>
     );
-  },
-});
+  }
+}

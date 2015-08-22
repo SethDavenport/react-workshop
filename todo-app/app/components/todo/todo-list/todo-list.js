@@ -1,26 +1,33 @@
 import React from "react";
 import TodoRow from '../todo-row/todo-row';
 
-export default React.createClass({
+export default class TodoList extends React.Component {
 
-  propTypes: {
-    editClicked: React.PropTypes.func.isRequired,
-    deleteClicked: React.PropTypes.func.isRequired
-  },
-  getInitalState: function() {
-    return {todos:[]};
-  },
-  editClicked: function(todo) {
+  constructor(props) {
+    super(props);
+
+    this.propTypes = {
+      editClicked: React.PropTypes.func.isRequired,
+      deleteClicked: React.PropTypes.func.isRequired
+    };
+
+    this.editClicked = this.editClicked.bind(this);
+    this.deleteClicked = this.deleteClicked.bind(this);
+  }
+
+  editClicked(todo) {
     this.props.editClicked(todo);
-  },
-  deleteClicked: function(todo) {
+  }
+
+  deleteClicked(todo) {
     this.props.deleteClicked(todo);
-  },
-  render: function() {
+  }
+
+  render() {
 
     var rows = [];
     var self = this;
-    this.state.todos.forEach(function(todo) {
+    this.props.todos.forEach(function(todo) {
         rows.push(<TodoRow todo={todo} key={todo.name} editClicked={self.editClicked} deleteClicked={self.deleteClicked} />);
     });
 
@@ -28,12 +35,13 @@ export default React.createClass({
       <table className="table table-bordered">
           <thead>
               <tr>
-                  <th>Name{this.props.todos.length} </th>
+                  <th>Name</th>
                   <th>Actions</th>
               </tr>
           </thead>
           <tbody>{rows}</tbody>
       </table>
     );
-  },
-});
+  }
+
+}
