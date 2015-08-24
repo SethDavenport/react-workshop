@@ -14,7 +14,7 @@
 1. Keeping track of mutated data, and
 2. Maintaining application state
 
-**Immutable** data cannot be changed, but it can only be copied and then tempered with. The original data is lost only if we loose the reference to it.
+**Immutable** data cannot be changed, but it can only be copied and then tempered with. The original data is lost only if we lose the reference to it.
 
 In JavaScript we have 6 primitive data types:
 
@@ -55,5 +55,5 @@ console.log(abc);
 ```
 If Array was immutable, pushing an element onto it would  return a new array `[1, 2, 3, 4]` i.e. `arr.push(4)` would return `[1, 2, 3, 4]` to `abc`.
 However, this is not the case in JavaScript and in out previos example, `abc` would be set to `4`, which is the emenent that was pushed onto the array.
-So with **mutable** data we loose the notion of **time**. In fact mutable data combines **value** and **time**, hence we don't have **OLD** data and **NEW** data, but only one which is the last edited one.
+So with **mutable** data we lose the notion of **time**. In fact mutable data combines **value** and **time**, hence we don't have **OLD** data and **NEW** data, but only one which is the last edited one.
 
