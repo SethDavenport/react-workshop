@@ -18,7 +18,7 @@ In JavaScript we have 6 primitive data types:
   5. Null
   6. Undefined
 
-`**Note:** Symbol was introduced in ECMAScript 6`
+**Note:**`Symbol was introduced in ECMAScript 6`
 
 All of these primitive data types are **immutable** which means that their values cannot be changed but instead new values are created. For example we can have a stirng literal "Hello" assigned to a variable `str` and then attempt to change the first character to "Y":
 
