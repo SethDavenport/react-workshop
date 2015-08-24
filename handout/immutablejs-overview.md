@@ -20,4 +20,4 @@ In JavaScript we have 6 primitive data types:
 
 `Note: Symbol was introduced in ECMAScript 6`
 
-
+All of these primitive data types are **immutable** which means that 
