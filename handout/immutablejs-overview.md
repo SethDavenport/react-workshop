@@ -9,6 +9,10 @@
 
 ### Mutable vs. Immutable
 
+**Mutable** data can be changed by replacing it's old data with new one. Mutation of data makes application development difficult because it is hard to keep track of mutated data and to maintain state.
+
+**Immutable** data cannot be changed, but it can only be copied and then tempered with. The original data is lost only if we loose the reference to it.
+
 In JavaScript we have 6 primitive data types:
 
   1. Boolean
@@ -31,7 +35,7 @@ console.log(str);
 
 `Hello`
 
-The only way to manipulate with the value of the string is through methods such as `tril`, `slice`, `replace` etc. However, even with those methods the original value does not change:
+The only way to manipulate with the value of the string is through methods such as `trim`, `slice`, `replace` etc. However, even with those methods the original value does not change:
 
 ```javascript
 var str1 = 'Hello';
@@ -39,4 +43,5 @@ var str2 = str1.replace('H', 'Y');
 console.log(str1); // This outputs `Hello`
 console.log(str2); // This outputs `Yello`
 ```
+
 
