@@ -10,6 +10,7 @@
 ### Mutable vs. Immutable
 
 **Mutable** data can be changed by replacing it's old data with new one. Mutation of data makes application development difficult because it makes the following things hard:
+
 1. Keeping track of mutated data, and
 2. Maintaining application state
 
