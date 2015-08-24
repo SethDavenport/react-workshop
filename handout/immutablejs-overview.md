@@ -11,12 +11,13 @@
 ### Mutable vs. Immutable
 
 In JavaScript we have 6 primitive data types:
-1. Boolean
-2. Number
-3. String
-4. Symbol
-5. Null
-6. Undefined
+
+  1. Boolean
+  2. Number
+  3. String
+  4. Symbol
+  5. Null
+  6. Undefined
 
 `Note: Symbol was introduced in ECMAScript 6`
 
