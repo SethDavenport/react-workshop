@@ -1,4 +1,3 @@
-
 # ImmutableJS Overview
 
 ### Index
@@ -30,4 +29,14 @@ console.log(str);
 ```
 **This would output:**
 
-`'Hello'`
+`Hello`
+
+The only way to manipulate with the value of the string is through methods such as `tril`, `slice`, `replace` etc. However, even with those methods the original value does not change:
+
+```javascript
+var str1 = 'Hello';
+var str2 = str1.replace('H', 'Y');
+console.log(str1); // This outputs `Hello`
+console.log(str2); // This outputs `Yello`
+```
+
