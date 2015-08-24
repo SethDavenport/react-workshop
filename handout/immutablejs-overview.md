@@ -2,11 +2,11 @@
 # ImmutableJS Overview
 
 ### Index
-1. Mutable vs. Immutable
-2. Persistent Data Structures?
-3. Structure Data Sharing
-4. ImmutableJS API
-5. Build it into todo App (undo, time machine)
+  1. Mutable vs. Immutable
+  2. Persistent Data Structures?
+  3. Structure Data Sharing
+  4. ImmutableJS API
+  5. Build it into todo App (undo, time machine)
 
 ### Mutable vs. Immutable
 
