@@ -50,7 +50,7 @@ var num1 = 12;
 var num2 = num1 + 3;
 
 console.log(num1); // num1 is still 12
-console.log(num2); // num2 is the new value
+console.log(num2); // num2 is the new value 15
 
 num1 += 4;         // num1 now points to the new value, 
                    //   we chose not to save it's previous value
@@ -58,7 +58,8 @@ num1 += 4;         // num1 now points to the new value,
 console.log(num1); // 16
 ```
 
-**Note:** that we did not change the meaning of the number 12 to 15. We just no longer care about the old value `12` and assign the new calculated value to `num`.
+**Note:** that `var num1 = num1 + 3` did not change the meaning of the number `12` to `15`.
+Also, in `num1 += 4` we just no longer care about the old value `12` and allowed `num1` to point to the new value and discard the old one.
 
 In JavaScript, **objects** and **arrays** are **mutable**
 ```javascript
@@ -87,8 +88,7 @@ console.log(newArr); // [1, 2, 3, 4] <= the new modified array
 ```
 
 ### Structure Data Sharing
-Whatever this is...!!??
-
+This immutable data structure can be implemented in JavaScript by copying **mutable** data and then changing the copy. This seem to be expensive, but by applying certain smart computer science algorithms we can handle this process efficiently.
 ### ImmutableJS API
 ImmutableJS is a library which was inspired by the lack of **persistent** data structures 
 
