@@ -60,10 +60,13 @@ num1 += 4;         // num1 now points to the new value,
 console.log(num1); // 16
 ```
 
+```
 **Note:** that `var num1 = num1 + 3` did not change the meaning of the number `12` to `15`.
 Also, in `num1 += 4` we just no longer care about the old value `12` and allowed `num1` to point to the new value and discarded the old one.
+```
 
 In JavaScript, **objects** and **arrays** are **mutable**
+
 ```javascript
 var arr = [1, 2, 3];
 var abc = arr.push(4);
@@ -91,8 +94,15 @@ console.log(newArr.toArray()); // [1, 2, 3, 4] <= the new modified array
 
 ### Structural Sharing
 
-It seems to be a good thing to have **persistent immutable data structures** in JavaScript but unfortunately the language does not provide that. The only solution is to create an API which would wrap mutable data structures and expose methods which would enable users to use it as if it was immutable. Under the covers this API would make a copy of the mutable data, perform certain change to it and then return it. We can sense couple major issues with this: 1. making copy of each data chunk that we want to modify could take too much memory; 2. going through entire data chunks just to make one single change take too many CPU cycles. However, we can take the advantage of the fact that making change of small chunk of the data it means that the rest of the data should remain untouched. In another words we can share the data structure of the original data with the changed one.
-In ImmutableJS this is done with the help of Hash Tires and it works 
+It seems to be a good thing to have **persistent immutable data structures** in JavaScript but unfortunately the language does not provide that. The only solution is to create an API which would wrap mutable data and enable the users to use it as if it was immutable. Under the covers this API would make a copy of the mutable data, perform certain change to the copy and then return it.
+Couple major issues with this approach are:
+
+1. making copy of each data chunk that we want to modify could take too much memory;
+2. going through entire data chunks just to make one single change take too many CPU cycles. 
+
+However, we can take the advantage of the fact that making change of small chunk of the data it means that the rest of the data should remain untouched. In another words we can share the data structure of the original data with the changed one.
+In ImmutableJS this is done with the help of Hash Tires and it works
+
 ### ImmutableJS API
 ImmutableJS is a library which was inspired by the lack of **persistent** data structures 
 
