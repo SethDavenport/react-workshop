@@ -6,11 +6,6 @@ export default class TodoList extends React.Component {
   constructor(props) {
     super(props);
 
-    this.propTypes = {
-      editClicked: React.PropTypes.func.isRequired,
-      deleteClicked: React.PropTypes.func.isRequired
-    };
-
     this.editClicked = this.editClicked.bind(this);
     this.deleteClicked = this.deleteClicked.bind(this);
   }
@@ -27,8 +22,8 @@ export default class TodoList extends React.Component {
 
     var rows = [];
     var self = this;
-    this.props.todos.forEach(function(todo) {
-        rows.push(<TodoRow todo={todo} key={todo.name} editClicked={self.editClicked} deleteClicked={self.deleteClicked} />);
+    this.props.todos.forEach(function(todo, index) {
+        rows.push(<TodoRow todo={todo} key={todo.id} index={index} editClicked={self.editClicked} deleteClicked={self.deleteClicked} />);
     });
 
     return (
@@ -43,5 +38,9 @@ export default class TodoList extends React.Component {
       </table>
     );
   }
-
 }
+
+TodoList.propTypes = {
+  editClicked: React.PropTypes.func.isRequired,
+  deleteClicked: React.PropTypes.func.isRequired
+};

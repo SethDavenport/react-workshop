@@ -12,10 +12,6 @@ export default class TodoForm extends React.Component {
     this.state = {
       todo: this.props.todo
     };
-
-    this.propTypes = {
-      todo: React.PropTypes
-    };
   }
 
   componentWillReceiveProps(nextProps) {
@@ -26,30 +22,39 @@ export default class TodoForm extends React.Component {
 
   handleChange(event) {
     this.state.todo.name = event.target.value;
-    this.setState({todo: this.state.todo});
+    this.setState(this.state);
   }
 
   saveClick (event) {
-    this.props.onSave(this.state.todo);
-    this.setState({todo:{}});
+    if(this.state.todo.name && this.state.todo.name.length > 0) {
+      this.props.onSave(this.state.todo);
+    } else {
+      alert('Please enter todo!!');
+    }
   }
 
   cancelClick (event) {
-    this.setState({todo:{}});
+    this.props.cancelClick();
   }
 
   render() {
       var name = this.state.todo.name;
       return (
         <div className='row'>
-          <div className="col-sm-3 col-sm-offset-4">
+          <div className="col-sm-10">
             <input type="text" className="form-control" placeholder='Todo' value={name} onChange={this.handleChange} />
           </div>
           <div className="col-sm-2 pull-right">
             <button className='btn btn-success btn-sm' onClick={this.saveClick}>Save</button>
+            &nbsp;&nbsp;
             <button className='btn btn-danger btn-sm' onClick={this.cancelClick}>Cancel</button>
           </div>
         </div>
     );
   }
 }
+
+TodoForm.propTypes = {
+ todo: React.PropTypes.object,
+ cancelClick: React.PropTypes.func.isRequired,
+};
