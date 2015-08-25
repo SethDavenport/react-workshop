@@ -50,7 +50,7 @@ var num1 = 12;
 var num2 = num1 + 3;
 
 console.log(num1); // num1 is still 12
-console.log(num2); // is the new value
+console.log(num2); // num2 is the new value
 
 num1 += 4;         // num1 now points to the new value, 
                    //   we chose not to save it's previous value
