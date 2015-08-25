@@ -1,7 +1,7 @@
-'use strict';
+var path = require('path');
 
 module.exports = {
-  context: __dirname + "/app",
+  context: path.resolve(__dirname) + "/app",
   target: "web",
   debug: true,
   resolve: {
@@ -16,7 +16,7 @@ module.exports = {
 
   output: {
     filename: "app.js",
-    path: __dirname + "/dist",
+    path: path.resolve(__dirname) + "/dist",
   },
 
 
@@ -26,12 +26,11 @@ module.exports = {
       exclude: /node_modules/,
       loaders: ["react-hot", "babel-loader"],
     }, {
-      test: /\.es6$/,
-      exclude: /node_modules/,
-      loaders: ["react-hot", "babel-loader"],
-    }, {
       test: /\.html$/,
       loader: "file?name=[name].[ext]",
+    }, {
+      test: /\.scss$/,
+      loader: 'style!css!sass'
     }],
   }
 }

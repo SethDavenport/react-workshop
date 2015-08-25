@@ -1,3 +1,6 @@
+// import 'bootstrap-sass';
+import './app.scss';
+
 import React from "react";
 import Header from "./components/header/header";
 import Todo from "./components/todo/todo";
