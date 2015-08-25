@@ -5,11 +5,11 @@
   2. Persistent Data Structures
   3. Structure Data Sharing
   4. ImmutableJS API
-  5. Build it into todo App (undo, time machine)
+  5. Build it into To-Do App (undo, time machine)
 
 ### Mutable vs. Immutable
 
-**Mutable** data can be changed by replacing it's old data with new one. Mutation of data makes application development difficult because it makes the following things hard:
+**Mutable** data can be changed by replacing itself with new one. Mutation of data makes application development difficult because it makes the following things hard:
 
 1. Keeping track of mutated data, and
 2. Maintaining application state
@@ -27,16 +27,13 @@ In JavaScript we have 6 primitive data types:
 
 **Note:**`Symbol was introduced in ECMAScript 6`
 
-All of these primitive data types are **immutable** which means that their values cannot be changed but instead new values are created. For example, assign a string literal `"Hello"` to a variable `str` and then attempt to change the first character to "Y":
+All of these primitive data types are **immutable** their values cannot be changed but instead new values are created. For example, assign a string literal `"Hello"` to a variable `str` and then attempt to change the first character to "Y":
 
 ```javascript
 var str = 'Hello';
 str[0] = 'Y';
-console.log(str);
+console.log(str); // his would output: Hello
 ```
-**This would output:**
-
-`Hello`
 
 The only way to manipulate with the value of the string is through methods such as `trim`, `slice`, `replace` etc. However, even with those methods the original value does not change:
 
@@ -47,17 +44,17 @@ console.log(str1); // This outputs `Hello`
 console.log(str2); // This outputs `Yello`
 ```
 
-In JavaScript, objects and arrays are **mutable**
+In JavaScript, **objects** and **arrays** are **mutable**
 ```javascript
 var arr = [1, 2, 3];
 var abc = arr.push(4);
 
-console.log(abc); // 4 <= the value that was added, we have lost the original array 
+console.log(abc); // 4 <= added value. We have lost the original array!!
 ```
 
 ### Persistent Data Structures
 
-Persistent data structures provides operators which allows users to perform certain manipulation to the data without changing the original and returns the newly mldified one. Such data structure is effectivelly is **immutable**.
+Persistent data structures provides operators which allows users to perform certain manipulation to the data without changing the original and returns the newly modified one. Such data structure is effectively is **immutable**.
 
 From our previous example if `Array` was immutable then pushing an element onto it would return a new array `[1, 2, 3, 4]` i.e. `arr.push(4)` would return `[1, 2, 3, 4]` to `abc`.
 
