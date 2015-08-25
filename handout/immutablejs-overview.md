@@ -2,7 +2,7 @@
 
 ### Index
   1. Mutable vs. Immutable
-  2. Persistent Data Structures?
+  2. Persistent Data Structures
   3. Structure Data Sharing
   4. ImmutableJS API
   5. Build it into todo App (undo, time machine)
@@ -51,9 +51,24 @@ In JavaScript, objects and arrays are **mutable**
 ```javascript
 var arr = [1, 2, 3];
 var abc = arr.push(4);
-console.log(abc);
+
+console.log(abc); // 4 <= the value that was added, we have lost the original array 
 ```
-If Array was immutable, pushing an element onto it would  return a new array `[1, 2, 3, 4]` i.e. `arr.push(4)` would return `[1, 2, 3, 4]` to `abc`.
-However, this is not the case in JavaScript and in out previos example, `abc` would be set to `4`, which is the emenent that was pushed onto the array.
+
+### Persistent Data Structures
+
+Persistent data structures provides operators which allows users to perform certain manipulation to the data without changing the original and returns the newly mldified one. Such data structure is effectivelly is **immutable**.
+
+From our previous example if `Array` was immutable then pushing an element onto it would return a new array `[1, 2, 3, 4]` i.e. `arr.push(4)` would return `[1, 2, 3, 4]` to `abc`.
+
+Ideally we want something like this:
+```javascript
+var arr = ImmutableArray([1, 2, 3]);
+var newArr = arr.push(4);
+
+console.log(arr); // [1,2,3] <= The old array is preserved
+console.log(newArr); // [1, 2, 3, 4] <= the new modified array
+```
+
 So with **mutable** data we lose the notion of **time**. In fact mutable data combines **value** and **time**, hence we don't have **OLD** data and **NEW** data, but only one which is the last edited one.
 
