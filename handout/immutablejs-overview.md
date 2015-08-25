@@ -85,12 +85,14 @@ Ideally we want something like this:
 var arr = ImmutableArray([1, 2, 3]);
 var newArr = arr.push(4);
 
-console.log(arr);    // [1,2,3]      <= The old array is preserved
-console.log(newArr); // [1, 2, 3, 4] <= the new modified array
+console.log(arr.toArray());    // [1,2,3]      <= The old array is preserved
+console.log(newArr.toArray()); // [1, 2, 3, 4] <= the new modified array
 ```
 
 ### Structural Sharing
-This immutable data structure can be implemented in JavaScript by copying **mutable** data and then changing the copy. This seem to be expensive. Also, it seems absurd to  but by applying certain smart computer science algorithms we can handle this process efficiently.
+
+It seems to be a good thing to have **persistent immutable data structures** in JavaScript but unfortunately the language does not provide that. The only solution is to create an API which would wrap mutable data structures and expose methods which would enable users to use it as if it was immutable. Under the covers this API would make a copy of the mutable data, perform certain change to it and then return it. We can sense couple major issues with this: 1. making copy of each data chunk that we want to modify could take too much memory; 2. going through entire data chunks just to make one single change take too many CPU cycles. However, we can take the advantage of the fact that making change of small chunk of the data it means that the rest of the data should remain untouched. In another words we can share the data structure of the original data with the changed one.
+In ImmutableJS this is done with the help of Hash Tires and it works 
 ### ImmutableJS API
 ImmutableJS is a library which was inspired by the lack of **persistent** data structures 
 
