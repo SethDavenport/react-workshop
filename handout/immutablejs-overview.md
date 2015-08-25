@@ -14,7 +14,7 @@
 1. Keeping track of mutated data, and
 2. Maintaining application state
 
-**Immutable** data cannot be changed, but it can only be copied and then tempered with. The original data is deleted only if we lose the reference to it.
+**Immutable** data cannot be changed, but it can only be copied and then edit the copy. The original data is deleted only if we lose the reference to it.
 
 In JavaScript we have 6 primitive data types:
 
@@ -66,7 +66,7 @@ Ideally we want something like this:
 var arr = ImmutableArray([1, 2, 3]);
 var newArr = arr.push(4);
 
-console.log(arr); // [1,2,3] <= The old array is preserved
+console.log(arr);    // [1,2,3]      <= The old array is preserved
 console.log(newArr); // [1, 2, 3, 4] <= the new modified array
 ```
 
