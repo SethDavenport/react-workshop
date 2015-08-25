@@ -60,10 +60,8 @@ num1 += 4;         // num1 now points to the new value,
 console.log(num1); // 16
 ```
 
-```
-Note: that `var num1 = num1 + 3` did not change the meaning of the number `12` to `15`.
+Note that `var num1 = num1 + 3` did not change the meaning of the number `12` to `15`.
 Also, in `num1 += 4` we just no longer care about the old value `12` and allowed `num1` to point to the new value and discarded the old one.
-```
 
 In JavaScript, **objects** and **arrays** are **mutable**
 
