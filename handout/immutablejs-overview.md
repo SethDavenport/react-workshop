@@ -29,12 +29,12 @@ In JavaScript we have 6 primitive data types:
 Note: Symbol was introduced in ECMAScript 6
 ```
 
-All of these primitive data types are **immutable** their values cannot be changed but instead new values are created. For example, assign a string literal ` "Hello" ` to a variable ` str ` and then attempt to change the first character to `"Y"`:
+All of these primitive data types are **immutable** which means their values cannot be changed and instead new values are created from them. For example, assign a string literal ` "Hello" ` to a variable ` str ` and then attempt to change the first character to ` "Y" ` in the following way:
 
 ```javascript
 var str = 'Hello';
 str[0] = 'Y';
-console.log(str); // Hello
+console.log(str); // Hello <= did not change 'H' to 'Y'
 ```
 
 The only way to manipulate strings is through methods such as ` trim `, ` slice `, ` replace ` etc. However, even with those methods the original value does not change:
